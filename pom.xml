@@ -8,7 +8,7 @@
         <module>rest</module>
         <module>persistence</module>
         <module>mail</module>
-        <module>starter</module>
+        <module>application</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -70,17 +70,5 @@
         </dependency>
 
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.nix.zemnitskiy.weatherapp.SpringWeatherApplication</mainClass>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
