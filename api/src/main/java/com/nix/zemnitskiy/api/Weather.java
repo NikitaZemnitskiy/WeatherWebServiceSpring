@@ -1,7 +1,9 @@
 package com.nix.zemnitskiy.api;
 
+import com.datastax.driver.core.DataType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
@@ -18,7 +20,7 @@ public class Weather {
     private String base;
     @Column
     private String name;
-    @Column
+    @CassandraType(type = DataType.Name.UDT, userTypeName = "temperature")
     private Temperature main;
     @Column
     private double visibility;

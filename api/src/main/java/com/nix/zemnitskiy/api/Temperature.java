@@ -1,11 +1,14 @@
 package com.nix.zemnitskiy.api;
 
+import com.datastax.driver.core.DataType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
+import org.springframework.data.cassandra.core.mapping.UserDefinedType;
 
 import java.util.UUID;
 
@@ -13,15 +16,21 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Table
+@UserDefinedType("temperature")
 public class Temperature {
-
-    @PrimaryKey
+    @CassandraType(type = DataType.Name.TEXT)
     private String tempId = UUID.randomUUID().toString();
+    @CassandraType(type = DataType.Name.DOUBLE)
     private double temp;
+    @CassandraType(type = DataType.Name.DOUBLE)
     private double feels_like;
+    @CassandraType(type = DataType.Name.DOUBLE)
     private double temp_min;
+    @CassandraType(type = DataType.Name.DOUBLE)
     private double temp_max;
+    @CassandraType(type = DataType.Name.DOUBLE)
     private double pressure;
+    @CassandraType(type = DataType.Name.DOUBLE)
     private double humidity;
+
 }
