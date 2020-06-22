@@ -6,11 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
-import org.springframework.data.cassandra.core.mapping.PrimaryKey;
-import org.springframework.data.cassandra.core.mapping.Table;
 import org.springframework.data.cassandra.core.mapping.UserDefinedType;
-
-import java.util.UUID;
 
 @NoArgsConstructor
 @Data
@@ -18,8 +14,6 @@ import java.util.UUID;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @UserDefinedType("temperature")
 public class Temperature {
-    @CassandraType(type = DataType.Name.TEXT)
-    private String tempId = UUID.randomUUID().toString();
     @CassandraType(type = DataType.Name.DOUBLE)
     private double temp;
     @CassandraType(type = DataType.Name.DOUBLE)

@@ -4,16 +4,18 @@ import com.nix.zemnitskiy.api.Temperature;
 import com.nix.zemnitskiy.api.Weather;
 import com.nix.zemnitskiy.cassandra.repository.WeatherRepository;
 import com.nix.zemnitskiy.mail.CamelMailSenderImpl;
+import com.nix.zemnitskiy.weatherapp.api.ProviderWeatherService;
 import com.nix.zemnitskiy.weatherapp.impl.ProviderWeatherServiceImpl;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyString;
+import static org.mockito.ArgumentMatchers.anyString;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProviderWeatherServiceTest {

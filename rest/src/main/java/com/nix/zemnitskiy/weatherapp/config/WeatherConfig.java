@@ -4,7 +4,6 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +11,9 @@ import java.util.List;
 public class WeatherConfig {
 
     @Bean
-    public WebClient getWebClient(){
-        List<Object> providers = new ArrayList<Object>();
+    public WebClient getWebClient() {
+        List<Object> providers = new ArrayList<>();
         providers.add(new JacksonJaxbJsonProvider());
-        WebClient client = WebClient.create("https://api.openweathermap.org/data/2.5/weather", providers);
-        return client;
+        return WebClient.create("https://api.openweathermap.org/data/2.5/weather", providers);
     }
 }

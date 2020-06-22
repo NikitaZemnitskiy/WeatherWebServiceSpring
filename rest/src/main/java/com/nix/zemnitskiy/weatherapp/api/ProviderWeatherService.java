@@ -1,4 +1,4 @@
-package com.nix.zemnitskiy.weatherapp;
+package com.nix.zemnitskiy.weatherapp.api;
 
 import com.nix.zemnitskiy.api.Weather;
 
