@@ -12,23 +12,10 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class WeatherServiceImpl implements WeatherService {
-    private static final String WEATHER_KEY = "9bc9127b5ca9be05751bd273761634d4";
-    private final static String UNITS = "metric";
-    private final WebClient webClient;
-    private final WeatherRepository weatherRepository;
-    private final CamelMailSenderImpl camelMailSender;
-
-
+   private final ProviderWeatherServiceImpl providerWeatherService;
 
     @Override
     public String getWeather(String city) {
-        Weather weather = webClient.reset()
-                .query("q", city)
-                .query("units", UNITS)
-                .query("APPID", WEATHER_KEY)
-                .get(Weather.class);
-        weatherRepository.save(weather);
-        camelMailSender.sendEmail(weather);
-        return weather.toString();
+        return providerWeatherService.getWeatherbyCity(city).toString();
     }
 }
