@@ -8,12 +8,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
+
 
 import javax.ws.rs.BadRequestException;
 
 import static org.junit.Assert.assertEquals;
-
 @RunWith(MockitoJUnitRunner.class)
 public class WeatherServiceImplTest {
     @Mock
@@ -30,7 +30,7 @@ public class WeatherServiceImplTest {
 
     @Test(expected = BadRequestException.class)
     public void getWeatherMethodInvalidValueCheck() {
-        Mockito.when(providerWeatherServiceImplmock.getWeatherbyCity("FictionalCity")).thenThrow(new BadRequestException("City FictionalCity is not in our database"));
+        Mockito.when(providerWeatherServiceImplmock.getWeatherbyCity("FictionalCity")).thenThrow(new BadRequestException("city not found"));
         new WeatherServiceImpl(providerWeatherServiceImplmock).getWeather("FictionalCity");
     }
 }

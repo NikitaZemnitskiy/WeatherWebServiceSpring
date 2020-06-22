@@ -16,7 +16,7 @@ import java.util.List;
 @Configuration
 public class CassandraConfig extends AbstractCassandraConfiguration {
 
-    public String KEYSPACE = "weather_keyspace_17";
+    public String KEYSPACE = "weather_keyspace_18";
 
     @Override
     public SchemaAction getSchemaAction() {
@@ -42,14 +42,6 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
     @Override
     public String[] getEntityBasePackages() {
         return new String[]{"com.nix.zemnitskiy.api"};
-    }
-
-    @Bean
-    public CassandraMappingContext mappingContext() {
-        BasicCassandraMappingContext mappingContext = new BasicCassandraMappingContext();
-        mappingContext.setUserTypeResolver(new
-                SimpleUserTypeResolver(cluster().getObject(), KEYSPACE));
-        return mappingContext;
     }
 
 }
